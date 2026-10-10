@@ -1,0 +1,12 @@
+// Mark: three nodes joined into one path, the "signal to pipeline" idea in miniature.
+export function LogoMark({ className = "brand-mark" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="#10231e" />
+      <path d="M8 22 L16 10 L24 22" fill="none" stroke="#dbe8e1" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="8" cy="22" r="3" fill="#dbe8e1" />
+      <circle cx="16" cy="10" r="3" fill="#dbe8e1" />
+      <circle cx="24" cy="22" r="3.4" fill="#f4a21c" />
+    </svg>
+  );
+}
