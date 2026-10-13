@@ -796,13 +796,14 @@ p {
 
 .post-list a {
   display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr);
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: 24px;
   padding: 26px 0;
   text-decoration: none;
 }
 
-.post-list time {
+.post-list time,
+.post-list .post-meta {
   color: var(--muted);
   font-size: 0.95rem;
   padding-top: 4px;

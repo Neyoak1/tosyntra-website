@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { founders, ogBase } from "@/lib/site";
-import { getAllPosts, formatDate } from "@/lib/insights";
+import { getAllPosts } from "@/lib/insights";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Cta } from "@/components/Cta";
 import { JsonLd } from "@/components/JsonLd";
@@ -61,7 +61,7 @@ export default async function FounderPage({ params }: Props) {
                   {posts.map((p) => (
                     <li key={p.slug}>
                       <Link href={`/insights/${p.slug}`}>
-                        <time dateTime={p.date}>{formatDate(p.date)}</time>
+                        <span className="post-meta">{p.readingMinutes} min read</span>
                         <div>
                           <h3>{p.title}</h3>
                         </div>

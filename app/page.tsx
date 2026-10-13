@@ -6,7 +6,7 @@ import { Cta } from "@/components/Cta";
 import { services } from "@/lib/services";
 import { projects } from "@/lib/work";
 import { founders } from "@/lib/site";
-import { getAllPosts, formatDate } from "@/lib/insights";
+import { getAllPosts } from "@/lib/insights";
 import { topSkills } from "@/lib/skills";
 
 export const metadata: Metadata = {
@@ -219,7 +219,7 @@ export default function Home() {
               {posts.map((p) => (
                 <li key={p.slug}>
                   <Link href={`/insights/${p.slug}`}>
-                    <time dateTime={p.date}>{formatDate(p.date)}</time>
+                    <span className="post-meta">{p.readingMinutes} min read</span>
                     <div>
                       <h3>{p.title}</h3>
                       <p>{p.description}</p>

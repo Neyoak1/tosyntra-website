@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllPosts, formatDate } from "@/lib/insights";
+import { getAllPosts } from "@/lib/insights";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Cta } from "@/components/Cta";
 
@@ -31,7 +31,7 @@ export default function InsightsPage() {
             {posts.map((p) => (
               <li key={p.slug}>
                 <Link href={`/insights/${p.slug}`}>
-                  <time dateTime={p.date}>{formatDate(p.date)}</time>
+                  <span className="post-meta">{p.readingMinutes} min read</span>
                   <div>
                     <h2 style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", marginBottom: 8 }}>{p.title}</h2>
                     <p>{p.description}</p>

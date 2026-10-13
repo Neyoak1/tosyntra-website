@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPost, formatDate } from "@/lib/insights";
+import { getAllPosts, getPost } from "@/lib/insights";
 import { founders, ogBase } from "@/lib/site";
 import { absoluteUrl } from "@/lib/site";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -76,8 +76,6 @@ export default async function PostPage({ params }: Props) {
               <span>
                 By <Link href={`/about/${author.slug}`}>{author.name}</Link>
               </span>
-              <time dateTime={p.date}>{formatDate(p.date)}</time>
-              {p.updated && <span>Updated {formatDate(p.updated)}</span>}
               <span>{p.readingMinutes} min read</span>
             </div>
           </div>
@@ -100,7 +98,7 @@ export default async function PostPage({ params }: Props) {
             {more.map((m) => (
               <li key={m.slug}>
                 <Link href={`/insights/${m.slug}`}>
-                  <time dateTime={m.date}>{formatDate(m.date)}</time>
+                  <span className="post-meta">{m.readingMinutes} min read</span>
                   <div>
                     <h3>{m.title}</h3>
                   </div>
